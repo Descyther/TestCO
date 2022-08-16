@@ -1,12 +1,15 @@
 import express from 'express';
-let router = express.Router();
+import authenticateToken from './helpers/auth.js';
 
-/* GET home page. */
-router.get('/time', function(req, res) {
+const router = express.Router();
 
+router.get('/time', authenticateToken, (req, res) => {
+  res.send({
+    epoch: {
+      description: 'The current server time, in epoch seconds, at time of processing the request.',
+      timeEpoch: Math.floor(+new Date() / 1000),
+    },
+  });
 });
-router.get('/metrics', function(req, res) {
 
-});
-
-export { router as indexRouter };
+export default router;
