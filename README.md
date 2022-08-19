@@ -5,8 +5,8 @@
 ---
 &nbsp;
 # Backend
-### Start the serever
+### Start the server
 ### `yarn start`
 
-### run jest testing
+### Run jest testing
 ### `yarn test route`
